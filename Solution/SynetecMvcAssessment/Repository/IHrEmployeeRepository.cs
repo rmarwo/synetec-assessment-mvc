@@ -6,8 +6,10 @@ using System.Web;
 
 namespace InterviewTestTemplatev2.Repository
 {
-    public interface IHrEmployeeRepository : IRepository<HrEmployee>
+    public interface IHrEmployeeRepository
     {
+        IEnumerable<HrEmployee> GetAll();
+        HrEmployee Get(object id);
         int GetSumOfSalaries();
     }
 }
