@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using InterviewTestTemplatev2.Core;
 using InterviewTestTemplatev2.Data;
 using InterviewTestTemplatev2.Models;
 using InterviewTestTemplatev2.Repository;
@@ -42,8 +43,8 @@ namespace InterviewTestTemplatev2.Controllers
             int totalSalary = _hrEmployeeRepository.GetSumOfSalaries();
 
             //calculate the bonus allocation for the employee
-            decimal bonusPercentage = (decimal)employeeSalary / (decimal)totalSalary;
-            int bonusAllocation = (int)(bonusPercentage * totalBonusPool);
+            BonusPoolCalculator calculator = new BonusPoolCalculator(totalSalary, totalBonusPool);
+            decimal bonusAllocation = calculator.CalculateBonusAllocation(employeeSalary);
 
             BonusPoolCalculatorResultModel result = new BonusPoolCalculatorResultModel();
             result.hrEmployee = hrEmployee;

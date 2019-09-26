@@ -166,6 +166,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BonusPoolController.cs" />
+    <Compile Include="Domain\BonusPoolCalculator.cs" />
     <Compile Include="Data\BonusPoolModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
